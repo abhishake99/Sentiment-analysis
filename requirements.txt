@@ -1,3 +1,5 @@
+cleantext==1.1.4
+nltk==3.7
 numpy==1.23.2
 scikit_learn==1.2.2
 spacy==3.4.2
