@@ -11,8 +11,8 @@ from nltk.corpus import wordnet
 from cleantext import clean
 from sklearn.pipeline import Pipeline, make_pipeline
 import streamlit as st
-nltk.download()
-nltk.download('averaged_perceptron_tagger')
+# nltk.download()
+# nltk.download('averaged_perceptron_tagger')
 
 CLEANR = re.compile('<.*?>') 
 en = spacy.load('en_core_web_sm')
@@ -69,26 +69,26 @@ def cleanhtml(text):
     cleantext = re.sub(CLEANR, '', text)
     return cleantext
 
-def get_simple_pos(tag):
-    if tag.startswith('J'):
-        return wordnet.ADJ
-    elif tag.startswith('V'):
-        return wordnet.VERB
-    elif tag.startswith('N'):
-        return wordnet.NOUN
-    elif tag.startswith('R'):
-        return wordnet.ADV
-    else:
-        return wordnet.NOUN
+# def get_simple_pos(tag):
+#     if tag.startswith('J'):
+#         return wordnet.ADJ
+#     elif tag.startswith('V'):
+#         return wordnet.VERB
+#     elif tag.startswith('N'):
+#         return wordnet.NOUN
+#     elif tag.startswith('R'):
+#         return wordnet.ADV
+#     else:
+#         return wordnet.NOUN
 
-def lemmatizerrr(text):
-    text=str(text)
-    split_text=text.split()
-    new_text=[]
-    for i in split_text:
-        tag=pos_tag([i])
-        lemmatizer.lemmatize(i,pos=get_simple_pos(tag[0][1]))
-    return " ".join(split_text) 
+# def lemmatizerrr(text):
+#     text=str(text)
+#     split_text=text.split()
+#     new_text=[]
+#     for i in split_text:
+#         tag=pos_tag([i])
+#         lemmatizer.lemmatize(i,pos=get_simple_pos(tag[0][1]))
+#     return " ".join(split_text) 
 
 def othercleaning(text):
     text = re.sub('((www\.[^\s]+)|(https?://[^\s]+))','',text) #remove links
@@ -101,7 +101,7 @@ def masterfunction(text):
     text=stopwords_remover(text)
     text=remove_emojis(text)
     text=cleanhtml(text)
-    text=lemmatizerrr(text)
+#     text=lemmatizerrr(text)
     text=othercleaning(text)
     return text              
 
