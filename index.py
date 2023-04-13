@@ -106,9 +106,9 @@ def othercleaning(tweet):
         i[0] = re.sub('[\s]+', ' ', i[0])
     return tweet       
 
-with open(r'C:\Users\abhishek\mypython\ML\NLP\twitter\pipeline1.pkl', 'rb') as f1:
+with open('pipeline1.pkl', 'rb') as f1:
     pipeline1 = pickle.load(f1)
-with open(r'C:\Users\abhishek\mypython\ML\NLP\twitter\pipeline2.pkl', 'rb') as f2:
+with open('pipeline2.pkl', 'rb') as f2:
     pipeline2 = pickle.load(f2)
     
 st.title("Sentiment Predictor")
