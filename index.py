@@ -69,26 +69,28 @@ def cleanhtml(text):
     cleantext = re.sub(CLEANR, '', text)
     return cleantext
 
-# def get_simple_pos(tag):
-#     if tag.startswith('J'):
-#         return wordnet.ADJ
-#     elif tag.startswith('V'):
-#         return wordnet.VERB
-#     elif tag.startswith('N'):
-#         return wordnet.NOUN
-#     elif tag.startswith('R'):
-#         return wordnet.ADV
-#     else:
-#         return wordnet.NOUN
+def get_simple_pos(treebank_tag):
+    if treebank_tag.startswith('J'):
+        return wordnet.ADJ
+    elif treebank_tag.startswith('V'):
+        return wordnet.VERB
+    elif treebank_tag.startswith('N'):
+        return wordnet.NOUN
+    elif treebank_tag.startswith('R'):
+        return wordnet.ADV
+    else:
+        return wordnet.NOUN
 
-# def lemmatizerrr(text):
-#     text=str(text)
-#     split_text=text.split()
-#     new_text=[]
-#     for i in split_text:
-#         tag=pos_tag([i])
-#         lemmatizer.lemmatize(i,pos=get_simple_pos(tag[0][1]))
-#     return " ".join(split_text) 
+def lemmatizerrr(sentence):
+    nltk_tagged = nltk.pos_tag(nltk.word_tokenize(sentence))  
+    wordnet_tagged = map(lambda x: (x[0], get_simple_pos(x[1])), nltk_tagged)
+    lemmatized_sentence = []
+    for word, tag in wordnet_tagged:
+        if tag is None:
+            lemmatized_sentence.append(word)
+        else:        
+            lemmatized_sentence.append(lemmatizer.lemmatize(word, tag))
+    return " ".join(lemmatized_sentence)
 
 def othercleaning(text):
     text = re.sub('((www\.[^\s]+)|(https?://[^\s]+))','',text) #remove links
@@ -105,7 +107,7 @@ def masterfunction(text):
     text=othercleaning(text)
     return text              
 
-with open('pipeline2.pkl', 'rb') as f2:
+with open('pipeline2up.pkl', 'rb') as f2:
     pipeline2 = pickle.load(f2)
     
 st.title("Sentiment Predictor")
