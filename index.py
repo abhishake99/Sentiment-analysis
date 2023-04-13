@@ -11,6 +11,7 @@ from nltk.corpus import wordnet
 from cleantext import clean
 from sklearn.pipeline import Pipeline, make_pipeline
 import streamlit as st
+nltk.download()
 nltk.download('averaged_perceptron_tagger')
 
 CLEANR = re.compile('<.*?>') 
