@@ -114,7 +114,7 @@ with open('pipeline2.pkl', 'rb') as f2:
 st.title("Sentiment Predictor")
 input_sms = st.text_area("Enter the message")
 if st.button('Predict'):
-    trans=pipeline1.transform([[input_sms]])
+    trans=pipeline1.transform(np.array(input_sms).reshape(-1,1))
     pre=pipeline2.predict(trans[0])
     if pre[0] == 'positive':
         st.header("Positive")
