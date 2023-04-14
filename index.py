@@ -107,7 +107,7 @@ def masterfunction(text):
     text=othercleaning(text)
     return text              
 
-with open('pipeline2up.pkl', 'rb') as f2:
+with open('pipeline2upn.pkl', 'rb') as f2:
     pipeline2 = pickle.load(f2)
     
 st.title("Sentiment Predictor")
