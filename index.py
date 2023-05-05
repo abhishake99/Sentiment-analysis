@@ -103,7 +103,7 @@ def masterfunction(text):
     text=stopwords_remover(text)
     text=remove_emojis(text)
     text=cleanhtml(text)
-#     text=lemmatizerrr(text)
+    text=lemmatizerrr(text)
     text=othercleaning(text)
     return text              
 
