@@ -12,7 +12,8 @@ from cleantext import clean
 from sklearn.pipeline import Pipeline, make_pipeline
 import streamlit as st
 nltk.download('punkt')
-# nltk.download('averaged_perceptron_tagger')
+nltk.download('stopwords')
+nltk.download('corpus')
 
 CLEANR = re.compile('<.*?>') 
 en = spacy.load('en_core_web_sm')
