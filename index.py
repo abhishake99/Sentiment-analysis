@@ -14,6 +14,7 @@ import streamlit as st
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('corpus')
+nltk.download('averaged_perceptron_tagger')
 
 CLEANR = re.compile('<.*?>') 
 en = spacy.load('en_core_web_sm')
