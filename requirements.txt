@@ -1,5 +1,6 @@
-keras==2.12.0
-streamlit==1.21.0
-tensorflow==2.11.0
-tensorflow_intel==2.11.0
+tensorflow-cpu>=2.5.1
+pickle-mixin
+streamlit
+pandas
+h5py==2.10.0 
 
