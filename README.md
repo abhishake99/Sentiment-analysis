@@ -1,2 +1,2 @@
-# Twitter-US-airline-sentiment-analysis
-Performed NLP method analysis on dataset, uesd Count vectorizer for vocablary genration and used Logistic-regressor with 80% accuracy.
+# Sentiment-analysis
+This sentiment app is trained on Bidirectional LSTM neural network with almost 1 Lakh texts deployed on streamlit. This app works by tokenzing the entered text into padded integer sequence and then send to model for prediction.
