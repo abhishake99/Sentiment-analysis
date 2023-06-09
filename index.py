@@ -1,7 +1,8 @@
 import pickle
-from keras.models import load_model
+import tensorflow
+from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-from keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.text import Tokenizer
 import streamlit as st
 
 model = load_model('best_model.h5')
