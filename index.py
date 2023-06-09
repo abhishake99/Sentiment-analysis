@@ -13,7 +13,7 @@ def predict_class(text):
     '''Function to predict sentiment class of the passed text'''
     
     sentiment_classes = ['Negative', 'Neutral', 'Positive']
-    max_len=50
+    max_len=100
     
     # Transforms text to a sequence of integers using a tokenizer object
     xt = tokenizer.texts_to_sequences(text)
